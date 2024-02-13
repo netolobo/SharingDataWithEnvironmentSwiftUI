@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct SharingDataWithEnvironmentSwiftUIApp: App {
+    @State private var label = BackgroundColor()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(label)
         }
     }
 }

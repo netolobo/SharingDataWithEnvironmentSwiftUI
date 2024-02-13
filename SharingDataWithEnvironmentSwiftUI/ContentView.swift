@@ -8,17 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(BackgroundColor.self) private var backgroundColor
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                Text("Background color from environment")
+                
+                NavigationLink("Go to second screen") {
+                    SecondView()
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(backgroundColor.value)
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environment(BackgroundColor())
 }
